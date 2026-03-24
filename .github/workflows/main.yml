@@ -31,16 +31,20 @@ jobs:
         coverage: none
 
     - name: Install Dependencies
-      run: composer install --working-dir=src --no-ansi --no-interaction --no-scripts --no-progress --prefer-dist
+      working-directory: src
+      run: composer install --no-ansi --no-interaction --no-scripts --no-progress --prefer-dist
 
     - name: Copy .env
-      run: cp src/.env.example src/.env
+      working-directory: src
+      run: cp .env.example .env
 
     - name: Generate key
-      run: php src/artisan key:generate
+      working-directory: src
+      run: php artisan key:generate
 
     - name: Run Tests
-      run: php src/artisan test
+      working-directory: src
+      run: php artisan test
       env:
         DB_CONNECTION: mysql
         DB_HOST: 127.0.0.1
