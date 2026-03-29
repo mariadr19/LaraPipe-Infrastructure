@@ -21,7 +21,7 @@ services:
       - ./src:/var/www/html
     working_dir: /var/www/html
 
-  # Banco de Dados Persistente - Container 3 [cite: 14, 18]
+  # Banco de Dados - Container 3
   db:
     image: mysql:8.0
     container_name: larapipe-db
